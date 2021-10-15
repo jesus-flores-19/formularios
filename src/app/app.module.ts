@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './componentes/template/template.component';
 import { ReactivoComponent } from './componentes/reactivo/reactivo.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateComponent,
-    ReactivoComponent
+    ReactivoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
