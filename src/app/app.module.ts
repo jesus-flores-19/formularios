@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './componentes/template/template.component';
+import { ReactivoComponent } from './componentes/reactivo/reactivo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplateComponent
+    TemplateComponent,
+    ReactivoComponent
   ],
   imports: [
     BrowserModule,
