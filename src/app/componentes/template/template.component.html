@@ -2,7 +2,7 @@
     <div class="col">
         <h4>Formularios <small> tipo </small></h4>
         <hr>
-        <form autocomplete="off">
+        <form autocomplete="off" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
             <div>
 
                 <div class="form-group row">
