@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TemplateComponent } from './componentes/template/template.component';
 import { ReactivoComponent } from './componentes/reactivo/reactivo.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
