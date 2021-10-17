@@ -8,7 +8,7 @@
                 <div class="form-group row">
                     <label class="col-2 col-form-label">Nombre</label>
                     <div class="col-8">
-                        <input class="form-control" type="text" ngModel name="nombre" required minlength="3" placeholder="Nombre">
+                        <input class="form-control" type="text" [(ngModel)]="usuario.nombre" name="nombre" required minlength="3" placeholder="Nombre">
                     </div>
                 </div>
 
@@ -39,4 +39,8 @@
         </form>
 
     </div>
+</div>
+
+<div class="row mt-3">
+    {{usuario | json}}
 </div>
