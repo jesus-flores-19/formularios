@@ -11,7 +11,9 @@ export class TemplateComponent implements OnInit {
   constructor() { }
 
   usuario: any = {
-    nombre: "Ulises"
+    nombre: "",
+    apellido: "",
+    email: ""
   }
 
   ngOnInit(): void {
