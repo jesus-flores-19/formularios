@@ -29,6 +29,8 @@
                 <div class="col-8">
 
                     <input class="form-control" type="email" email #email="ngModel" [class.is-invalid]="email.invalid && email.touched" (ngModel)="usuario.email" required name=" email " placeholder="Correo electrónico ">
+                    <span class="form-text text-danger" *ngIf="email.invalid && email.touched">Ingrese correctamente el correo</span>
+
                 </div>
             </div>
 
