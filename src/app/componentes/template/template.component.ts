@@ -20,7 +20,11 @@ export class TemplateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    if(form.invalid) return;
+    if(form.invalid) {
+      Object.values(form.controls).forEach(control => {
+        control.markAsTouched();
+      })
+    };
     console.log(form.value);
   }
 
