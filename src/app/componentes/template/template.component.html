@@ -9,6 +9,7 @@
                     <label class="col-2 col-form-label">Nombre</label>
                     <div class="col-8">
                         <input class="form-control" [class.is-invalid]="nombre.invalid && nombre.touched" #nombre="ngModel" type="text" (ngModel)="usuario.nombre" name="nombre" required minlength="3" placeholder="Nombre">
+                        <span class="form-text text-danger" *ngIf="nombre.invalid && nombre.touched">Ingrese correctamente el nombre</span>
                     </div>
                 </div>
 
