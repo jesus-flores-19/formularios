@@ -56,10 +56,15 @@
                                 <td>Borrar</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr></tr>
+                        <tbody formArrayName="pasatiempos">
+                            <tr *ngFor="let pasatiempo of pasatiempos.controls; let i=index">
+                                <th>{{i + 1}}</th>
+                                <th><input type="text" [formControlName]="i" class="form-control"></th>
+                                <th><button type="button" (click)="borrarPasatiempo(i)" class="btn btn-danger">Borrar</button></th>
+                            </tr>
                         </tbody>
                     </table>
+                    <button class="btn btn-primary w-100" (click)="agregarPasatiempos()" type="button">Agregar</button>
                 </div>
             </div>
 

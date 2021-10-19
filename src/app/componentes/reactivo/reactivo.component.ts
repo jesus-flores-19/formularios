@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactivo',
@@ -25,7 +25,6 @@ export class ReactivoComponent implements OnInit {
           estado: ["", [Validators.required, Validators.minLength(3)]]
         }),
         pasatiempos: this.fb.array([
-          [],[],[]
         ])
       });
    }
@@ -42,6 +41,13 @@ export class ReactivoComponent implements OnInit {
        }
       });
       //La otra es reseteando el formulario
+   }
+
+   agregarPasatiempos(){
+     this.pasatiempos.push( this.fb.control("Nuevo Elemento") )
+   }
+   get pasatiempos(){
+     return this.forma.get("pasatiempos") as FormArray;
    }
 
    get nombreEsValido(){
@@ -87,7 +93,7 @@ export class ReactivoComponent implements OnInit {
      //Reseteando formulario
      this.forma.reset(
        {
-        nombre: "Chinguen a su madre"
+        nombre: "Jesus"
        }
      )
      
