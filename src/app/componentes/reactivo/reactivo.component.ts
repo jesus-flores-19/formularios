@@ -81,7 +81,12 @@ export class ReactivoComponent implements OnInit {
      console.log(this.forma);
 
 
-     
+     //Reseteando formulario
+     this.forma.reset(
+       {
+        nombre: "Chinguen a su madre"
+       }
+     )
      
    }
 
