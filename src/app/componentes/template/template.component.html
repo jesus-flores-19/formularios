@@ -40,6 +40,8 @@
                         <option value="" selected>Seleccione una opcion</option>
                         <option *ngFor="let pais of paises" [value]="pais.idpais">{{pais.nombre}}</option>
                     </select>
+                    <span class="form-text text-danger" *ngIf="email.invalid && email.touched">Ingrese un pais.</span>
+
                 </div>
             </div>
 
