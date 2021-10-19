@@ -33,6 +33,12 @@ export class ReactivoComponent implements OnInit {
 
 
    guardar(){
+     if(this.forma.invalid){
+       Object.values(this.forma.controls).forEach(control => {
+         control.markAsTouched();
+         return;
+       })
+     }
      console.log(this.forma);
      
    }
