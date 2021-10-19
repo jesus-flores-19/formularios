@@ -46,6 +46,10 @@ export class ReactivoComponent implements OnInit {
    agregarPasatiempos(){
      this.pasatiempos.push( this.fb.control("Nuevo Elemento") )
    }
+   borrarPasatiempo(i: number){
+     this.pasatiempos.removeAt(i);
+   }
+
    get pasatiempos(){
      return this.forma.get("pasatiempos") as FormArray;
    }
