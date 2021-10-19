@@ -18,6 +18,20 @@ export class ReactivoComponent implements OnInit {
     });
    }
 
+   get nombreEsValido(){
+      return this.forma.get("nombre")?.invalid && this.forma.get("nombre")?.touched;
+   }
+
+   get apellidoEsValido(){
+    return this.forma.get("apellido")?.invalid && this.forma.get("apellido")?.touched;
+   }
+
+   get correoEsValido(){
+    return this.forma.get("correo")?.invalid && this.forma.get("correo")?.touched;
+   }
+
+
+
    guardar(){
      console.log(this.forma);
      

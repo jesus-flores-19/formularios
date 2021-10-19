@@ -9,8 +9,7 @@
                 <div class="form-group row mt-3">
                     <label class="col-2 col-form-label">Nombre</label>
                     <div class="col-10">
-
-                        <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+                        <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreEsValido">
                     </div>
                 </div>
 
@@ -18,7 +17,7 @@
                     <label class="col-2 col-form-label">Apellido</label>
                     <div class="col-10">
 
-                        <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
+                        <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" [class.is-invalid]="apellidoEsValido">
                     </div>
                 </div>
 
@@ -27,8 +26,7 @@
             <div class="form-group row mt-3">
                 <label class="col-2 col-form-label">Correo</label>
                 <div class="col-10">
-
-                    <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo">
+                    <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoEsValido">
                 </div>
             </div>
 
