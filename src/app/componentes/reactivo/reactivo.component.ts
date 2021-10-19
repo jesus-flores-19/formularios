@@ -51,7 +51,11 @@ export class ReactivoComponent implements OnInit {
    guardar(){
      if(this.forma.invalid){
        Object.values(this.forma.controls).forEach(control => {
-         control.markAsTouched();
+         if(control instanceof FormGroup){
+            Object.values(control.controls).forEach(control => control.markAsTouched())
+         }else{
+           control.markAsTouched();
+         }
          return;
        })
      }
