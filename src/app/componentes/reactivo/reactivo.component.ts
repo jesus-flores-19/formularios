@@ -16,8 +16,8 @@ export class ReactivoComponent implements OnInit {
       apellido: ["", [Validators.required, Validators.minLength(3)]],
       correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
       direccion: this.fb.group({
-        municipio: [""],
-        estado: [""]
+        municipio: ["", [Validators.required, Validators.minLength(3)]],
+        estado: ["", [Validators.required, Validators.minLength(3)]]
       })
     });
    }
@@ -32,6 +32,18 @@ export class ReactivoComponent implements OnInit {
 
    get correoEsValido(){
     return this.forma.get("correo")?.invalid && this.forma.get("correo")?.touched;
+   }
+
+   get estadoEsValido(){
+     return this.forma.get("direccion.estado")?.invalid && this.forma.get("direccion.estado")?.touched
+   }
+
+   get municipioEsValido(){
+    return this.forma.get("direccion.municipio")?.invalid && this.forma.get("direccion.municipio")?.touched
+   }
+
+   get direccionEsValido(){
+    return this.estadoEsValido || this.municipioEsValido;
    }
 
 

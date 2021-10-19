@@ -37,12 +37,13 @@
                 <div class="col" formGroupName="direccion">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Estado" formControlName="estado">
+                            <input type="text" class="form-control" placeholder="Estado" formControlName="estado" [class.is-invalid]="estadoEsValido">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Municipio" formControlName="municipio">
+                            <input type="text" class="form-control" placeholder="Municipio" formControlName="municipio" [class.is-invalid]="municipioEsValido">
                         </div>
                     </div>
+                    <span class="text-danger" *ngIf="direccionEsValido">Ingrese correctamente la direccion</span>
                 </div>
             </div>
 
