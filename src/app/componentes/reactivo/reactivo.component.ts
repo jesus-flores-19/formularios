@@ -23,13 +23,16 @@ export class ReactivoComponent implements OnInit {
         direccion: this.fb.group({
           municipio: ["", [Validators.required, Validators.minLength(3)]],
           estado: ["", [Validators.required, Validators.minLength(3)]]
-        })
+        }),
+        pasatiempos: this.fb.array([
+          [],[],[]
+        ])
       });
    }
 
    cargarData(){
     //Existen dos maneras de cargar datos, creo que la conveniente sea con set value:. 
-    this.forma.setValue({
+    this.forma.reset({
       nombre: "Jesus",
       apellido: "Flores",
       correo: "jesus19arath@gmail.com",
