@@ -13,7 +13,7 @@ export class ReactivoComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.forma = this.fb.group({
       nombre: ["", [Validators.required, Validators.minLength(3)]],
-      apellido: [""],
+      apellido: ["", [Validators.required, Validators.minLength(3)]],
       correo: [""]
     });
    }
