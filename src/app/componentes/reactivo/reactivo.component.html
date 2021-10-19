@@ -10,14 +10,15 @@
                     <label class="col-2 col-form-label">Nombre</label>
                     <div class="col-10">
                         <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreEsValido">
+                        <span class="text-danger" *ngIf="nombreEsValido">Ingrese el nombre</span>
                     </div>
                 </div>
 
                 <div class="form-group row mt-3">
                     <label class="col-2 col-form-label">Apellido</label>
                     <div class="col-10">
-
                         <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" [class.is-invalid]="apellidoEsValido">
+                        <span class="text-danger" *ngIf="apellidoEsValido">Ingrese el apellido</span>
                     </div>
                 </div>
 
@@ -27,6 +28,7 @@
                 <label class="col-2 col-form-label">Correo</label>
                 <div class="col-10">
                     <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoEsValido">
+                    <span class="text-danger" *ngIf="correoEsValido">Ingrese el correo</span>
                 </div>
             </div>
 
