@@ -40,6 +40,9 @@ export class ReactivoComponent implements OnInit {
         municipio: "Morelos"
        }
       });
+
+      //Cargar datos del arreglo formArrat
+      ["Elemento 1", "Elemento 2"].forEach(value => this.pasatiempos.push(this.fb.control(value)))
       //La otra es reseteando el formulario
    }
 
