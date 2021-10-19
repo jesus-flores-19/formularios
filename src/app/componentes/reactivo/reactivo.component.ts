@@ -10,16 +10,35 @@ export class ReactivoComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.forma = this.fb.group({
-      nombre: ["", [Validators.required, Validators.minLength(3)]],
-      apellido: ["", [Validators.required, Validators.minLength(3)]],
-      correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
-      direccion: this.fb.group({
-        municipio: ["", [Validators.required, Validators.minLength(3)]],
-        estado: ["", [Validators.required, Validators.minLength(3)]]
-      })
-    });
+  constructor(public fb: FormBuilder) {
+    this. forma = this.obtenerFormulario();
+    this.cargarData();
+   }
+
+   obtenerFormulario(){
+      return this.fb.group({
+        nombre: ["", [Validators.required, Validators.minLength(3)]],
+        apellido: ["", [Validators.required, Validators.minLength(3)]],
+        correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
+        direccion: this.fb.group({
+          municipio: ["", [Validators.required, Validators.minLength(3)]],
+          estado: ["", [Validators.required, Validators.minLength(3)]]
+        })
+      });
+   }
+
+   cargarData(){
+    //Existen dos maneras de cargar datos, creo que la conveniente sea con set value:. 
+    this.forma.setValue({
+      nombre: "Jesus",
+      apellido: "Flores",
+      correo: "jesus19arath@gmail.com",
+      direccion: {
+        estado: "Enamorado",
+        municipio: "Morelos"
+       }
+      });
+      //La otra es reseteando el formulario
    }
 
    get nombreEsValido(){
@@ -60,6 +79,9 @@ export class ReactivoComponent implements OnInit {
        })
      }
      console.log(this.forma);
+
+
+     
      
    }
 
