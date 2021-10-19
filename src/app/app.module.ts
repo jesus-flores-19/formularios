@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { TemplateComponent } from './componentes/template/template.component';
 import { ReactivoComponent } from './componentes/reactivo/reactivo.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+
+//Formularios
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
