@@ -45,3 +45,15 @@
         </form>
     </div>
 </div>
+<div class="row mt-5">
+    <div class="col">
+        <pre>
+            Estado del formulario: {{forma.valid}}
+            <hr>
+            Status: {{forma.status}}
+        </pre>
+        <pre>
+            {{forma.value | json}}
+        </pre>
+    </div>
+</div>

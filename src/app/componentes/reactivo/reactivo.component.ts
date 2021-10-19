@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactivo',
@@ -12,7 +12,7 @@ export class ReactivoComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.forma = this.fb.group({
-      nombre: [""],
+      nombre: ["", [Validators.required, Validators.minLength(3)]],
       apellido: [""],
       correo: [""]
     });
