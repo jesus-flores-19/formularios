@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { PaisesService } from 'src/app/service/paises.service';
 
 @Component({
   selector: 'app-template',
@@ -8,12 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public paisService: PaisesService) { 
+    this.obtenerPaises();
+  }
 
+  paises:any = []
   usuario: any = {
     nombre: "",
     apellido: "",
-    email: ""
+    email: "",
+    pais: ""
   }
 
   ngOnInit(): void {
@@ -26,6 +31,11 @@ export class TemplateComponent implements OnInit {
       })
     };
     console.log(form.value);
+  }
+
+  obtenerPaises(){
+    this.paises = this.paisService.obtenerPaises();
+    
   }
 
 }
