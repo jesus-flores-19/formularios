@@ -15,10 +15,11 @@ export class TemplateComponent implements OnInit {
 
   paises:any = []
   usuario: any = {
-    nombre: "",
-    apellido: "",
-    email: "",
-    pais: ""
+    nombre: "Jesus",
+    apellido: "Flores",
+    email: "jesus@gmail.com",
+    pais: "MEX",
+    genero: ""
   }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class TemplateComponent implements OnInit {
 
   obtenerPaises(){
     this.paises = this.paisService.obtenerPaises();
-    
+
   }
 
 }
