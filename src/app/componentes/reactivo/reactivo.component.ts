@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { ValidadoresService } from 'src/app/service/validadores.service';
 
 @Component({
   selector: 'app-reactivo',
@@ -10,7 +11,7 @@ export class ReactivoComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private validadores: ValidadoresService) {
     this. forma = this.obtenerFormulario();
     this.cargarData();
    }
@@ -18,7 +19,7 @@ export class ReactivoComponent implements OnInit {
    obtenerFormulario(){
       return this.fb.group({
         nombre: ["", [Validators.required, Validators.minLength(3)]],
-        apellido: ["", [Validators.required, Validators.minLength(3)]],
+        apellido: ["", [Validators.required, Validators.minLength(3), this.validadores.noHerrera]],
         correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
         direccion: this.fb.group({
           municipio: ["", [Validators.required, Validators.minLength(3)]],
@@ -44,6 +45,9 @@ export class ReactivoComponent implements OnInit {
       //Cargar datos del arreglo formArrat
       ["Elemento 1", "Elemento 2"].forEach(value => this.pasatiempos.push(this.fb.control(value)))
       //La otra es reseteando el formulario
+
+      console.log(this.forma);
+      
    }
 
    agregarPasatiempos(){
