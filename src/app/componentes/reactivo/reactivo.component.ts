@@ -21,12 +21,16 @@ export class ReactivoComponent implements OnInit {
         nombre: ["", [Validators.required, Validators.minLength(3)]],
         apellido: ["", [Validators.required, Validators.minLength(3), this.validadores.noHerrera]],
         correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
+        pass1: ["", [Validators.required]],
+        pass2: ["", [Validators.required]],
         direccion: this.fb.group({
           municipio: ["", [Validators.required, Validators.minLength(3)]],
           estado: ["", [Validators.required, Validators.minLength(3)]]
         }),
         pasatiempos: this.fb.array([
         ])
+      },{
+        validators: this.validadores.passwords("pass1", "pass2")
       });
    }
 
@@ -84,6 +88,15 @@ export class ReactivoComponent implements OnInit {
    get direccionEsValido(){
     return this.estadoEsValido || this.municipioEsValido;
    }
+   get pass1EsValido(){
+     return this.forma.get("pass1")?.invalid && this.forma.get("pass1")?.touched
+   }
+   get pass2EsValido(){
+     const pass1 = this.forma.get("pass1")?.value;
+     const pass2 = this.forma.get("pass2")?.value;
+    
+     return (pass1 == pass2) ? false : true;
+   }
 
 
 
@@ -95,8 +108,8 @@ export class ReactivoComponent implements OnInit {
          }else{
            control.markAsTouched();
          }
-         return;
        })
+       return;
      }
      console.log(this.forma);
 
