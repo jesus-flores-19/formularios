@@ -21,7 +21,7 @@ export class ReactivoComponent implements OnInit {
         nombre: ["", [Validators.required, Validators.minLength(3)]],
         apellido: ["", [Validators.required, Validators.minLength(3), this.validadores.noHerrera]],
         correo: ["", [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$")]],
-        usuario: ["", [Validators.required]],
+        usuario: ["", [Validators.required], this.validadores.usuarioExiste],
         pass1: ["", [Validators.required]],
         pass2: ["", [Validators.required]],
         direccion: this.fb.group({
@@ -81,7 +81,7 @@ export class ReactivoComponent implements OnInit {
    }
 
    get usuarioEsValido(){
-     return this.forma.get("usuario")?.invalid && this.forma.get("correo")?.touched;
+     return this.forma.get("usuario")?.invalid && this.forma.get("usuario")?.touched;
    }
 
    get estadoEsValido(){
