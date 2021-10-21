@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,17 @@ export class ValidadoresService {
         })
       }
     }
+  }
+
+  usuarioExiste(control: FormControl) : Promise <any> | Observable <any>{
+    return new Promise( (resolve, reject)=>{
+      setTimeout( () => {
+        if(control.value == "strider"){
+          resolve( {existe: true});
+        }else{
+          resolve( null )
+        }
+      }, 3000)
+    })
   }
 }
